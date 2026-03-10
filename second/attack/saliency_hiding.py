@@ -1,30 +1,6 @@
-# use dataloader of second
-# support patch: mannual patch, saliency maps, pretrianed SUP matrix
-# use expanded saliency maps and bboxes to include surrunding points
-# attack 3 types of objects: car, pedestrian, bicycle
-# expand bboxes
-# perturbation shape: saliency map top n voxels and other manual shapes such as X shape and half edges
-# selection strategy: critical_first, random
-# perturbation strategy: empty, ray
-# save perturbed lidar
-
-# several commands can be run simultaneously
 
 '''
-combined codes:
-./data/kitti_dataset2.py
-./data/nuscenes_dataset3.py
 
-environment commands: 
-
-. /vol/cuda/11.7.1/setup.sh
-export PATH=/vol/bitbucket/${USER}/Anaconda3/bin/:$PATH
-export CUDA_HOME=/vol/cuda/11.7.1
-export C_INCLUDE_PATH=/vol/cuda/11.7.1/include:/vol/cuda/11.7.1/targets/x86_64-linux/include
-export CPATH=/vol/cuda/11.7.1/include:/vol/cuda/11.7.1/targets/x86_64-linux/include
-export PYTHONPATH=/vol/bitbucket/cy19/saliency_map_v2:$PYTHONPATH
-source activate
-conda activate env_saliency_map_v3
 cd /vol/bitbucket/cy19/saliency_map_v2/second/
 
 python ./attack/saliency_hiding.py --pert_shape 'saliency_map' --map_source_dataset 'kitti' --map_source_detector 'pp' --map_source_object 'Car' --top_n 1.0 --selection_level 'frustum_level' --selection_strategy 'random' --perturbation_strategy 'ray' --frustum_budget 10  --target_dataset 'kitti' --target_detector 'pp'  --target_object 'Car' --iou_thres 0.7 --conf_thres 0.7

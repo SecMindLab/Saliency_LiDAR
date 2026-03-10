@@ -4,16 +4,6 @@
 # use expanded bbox for perturbation, while use gt bbox for IOU calculation.
 # problem: gradient computation is slow. Each scene, compute 25 times.
 '''
-environment commands: 
-
-. /vol/cuda/11.7.1/setup.sh
-export PATH=/vol/bitbucket/${USER}/Anaconda3/bin/:$PATH
-export CUDA_HOME=/vol/cuda/11.7.1
-export C_INCLUDE_PATH=/vol/cuda/11.7.1/include:/vol/cuda/11.7.1/targets/x86_64-linux/include
-export CPATH=/vol/cuda/11.7.1/include:/vol/cuda/11.7.1/targets/x86_64-linux/include
-export PYTHONPATH=/vol/bitbucket/cy19/saliency_map_v2:$PYTHONPATH
-source activate
-conda activate env_saliency_map_v3
 cd /vol/bitbucket/cy19/saliency_map_v2/second
 
 python ./pytorch/saliency_map.py --box_size_factor 1.5 --dataset 'nusc' --basemap 'nearest_corner' --detector 'second' --target_object 'car'
