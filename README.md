@@ -26,7 +26,7 @@ wget https://www.nuscenes.org/data/v1.0-mini.tgz
 #### 3. Generate saliency maps
 For example, generate a saliency map for car objects predicted by PointPillars in KITTI dataset:
 ```
-cd /vol/bitbucket/cy19/saliency_map_v2/second/
+cd ./second/
 python ./pytorch/saliency_map.py --box_size_factor 1.5 --dataset 'kitti' --basemap 'zeros' --detector 'pp' --target_object 'Car' 
 ```
 
