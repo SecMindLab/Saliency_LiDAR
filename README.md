@@ -9,7 +9,7 @@ Paper link:
 ## Requirements
  - CUDA 11
  - Python 3
- - pytorch, PIL, numpy and other relevant packages
+ - pytorch, spconv, PIL, numpy and other relevant packages
 
 ## Usage
 #### 1. Get pretrained models
