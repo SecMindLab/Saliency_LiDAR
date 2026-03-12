@@ -275,56 +275,6 @@ def random_point_filter(cloud, perturbation_rate):
 
     return target_cloud, nontarget_cloud
 
-def critical_point_selection(perturbation_strategy, target_cloud, points_contri, point_budget):
-    # shift certain points with the guidance of saliency_map
-    shifted_cloud = []
-    not_shifted_cloud = []
-    
-    points_contri = np.reshape(points_contri,(-1, 1))
-    print('points_contri: ', points_contri)
-    cloud_with_contri = np.concatenate([target_cloud, points_contri], axis = 1)
-    # sort new cloud by points_contri in ascending order
-    sorted_cloud_with_contri = sort_by_column(cloud_with_contri, 4)
-    print('sorted_cloud_with_contri: ', sorted_cloud_with_contri)
-    sorted_target_cloud = sorted_cloud_with_contri[:, :4].tolist()
-    # print('sorted_target_cloud: ', sorted_target_cloud)
-
-    for point_index in range(point_budget):
-        # print('shifting the {}-th critical point'.format(point_index))
-        point = sorted_target_cloud.pop()
-        if perturbation_strategy == 'ray':
-            shifting_distance = random.uniform(-2.0, 2.0)
-            shifted_point = ray_shifting(point, shifting_distance)
-            shifted_cloud.append(shifted_point)
-        elif perturbation_strategy == 'remove':
-            # don't append the point in shifted_cloud
-            pass
-        
-    not_shifted_cloud = sorted_target_cloud
-
-    return shifted_cloud, not_shifted_cloud
-
-def random_point_selection(perturbation_strategy, target_cloud, point_budget):
-    # randomly shift certain points under point budget
-    shifted_cloud = []
-    not_shifted_cloud = []
-    
-    is_shifting = random_bool(len(target_cloud), point_budget)
-    for point_index in range(len(target_cloud)):
-        point = target_cloud[point_index]
-        if is_shifting[point_index] == 0:
-            if perturbation_strategy == 'ray':
-                shifting_distance = random.uniform(-2.0, 2.0)
-                shifted_point = ray_shifting(point, shifting_distance)
-                shifted_cloud.append(shifted_point)
-            elif perturbation_strategy == 'remove':
-                # don't append the point in shifted_cloud
-                pass
-        else:
-            not_shifted_cloud.append(point)
-
-    return shifted_cloud, not_shifted_cloud
-
 def critical_frustum_selection(perturbation_strategy, target_cloud, frustum_indices, points_contri, frustum_budget, frustum_drop_budget = 0):
     # shift certain points with the guidance of saliency_map
     shifted_cloud = []
@@ -651,17 +601,6 @@ def perturbation(args, target_cloud, pillar_indices, expand_gt_corners_lidar, ma
 
     # print('points_in_shape: ', points_in_shape)
     if len(points_in_shape) > 0:
-
-        if args.selection_level == 'point_level':
-            # compare point_budget with actual point candidates
-            num_perturbed_points = args.point_budget
-            if len(points_in_shape) < num_perturbed_points:
-                num_perturbed_points = len(points_in_shape) 
-
-            if args.selection_strategy == 'critical_first':
-                shifted_cloud, not_shifted_cloud_in_shape = critical_point_selection(args.perturbation_strategy, points_in_shape, points_contri, num_perturbed_points)
-            if args.selection_strategy == 'random':
-                shifted_cloud, not_shifted_cloud_in_shape = random_point_selection(args.perturbation_strategy, points_in_shape, num_perturbed_points)
 
         if args.selection_level == 'frustum_level':
             # frustum creation: divide the whole bbox (points) to small frustums
