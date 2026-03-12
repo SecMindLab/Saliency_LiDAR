@@ -1,3 +1,6 @@
+
+# Torch version of voxel builder by Chengzeng You
+# ==============================================================================
 import numpy as np
 import torch
 from spconv.pytorch.utils import PointToVoxel
