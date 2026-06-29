@@ -1,11 +1,16 @@
 # Saliency-LiDAR
 
-This is the official implementation of Saliency-LiDAR (Explainability-aware Frustum Attack: Exposing Structural Vulnerabilities in LiDAR-Based 3D Object Detectors).
+This is the official implementation of Saliency-LiDAR (Explainability-aware Frustum Attack: Exposing Structural Vulnerabilities in LiDAR-Based 3D Object Detectors). We introduce the Saliency-LiDAR (SALL) method, which aggregates Integrated Gradient attributions across scenes to produce universal saliency maps for LiDAR-based 3D object detectors. 
 
 <img width="4142" height="1668" alt="saliency_lidar" src="https://github.com/user-attachments/assets/29c2d837-801b-4cda-adbe-50b256cfb0f1" />
 
 
-We introduce the Saliency-LiDAR (SALL) method, which aggregates Integrated Gradient attributions across scenes to produce universal saliency maps for LiDAR-based 3D object detectors. Guided by these maps, we design the Explainability-aware Frustum Attack (EFA), which selectively perturbs only the most influential frustums rather than uniformly attacking entire object regions. Our experiments show that EFA reduces detection recall by more than 15 percentage points while requiring 25–50\% fewer perturbed frustums than the SOTA non–saliency-aware baseline. These findings reveal that modern 3D detectors concentrate discriminative evidence in a small subset of spatial regions, exposing a structural robustness vulnerability in current LiDAR perception systems. 
+Guided by these maps, we design the Explainability-aware Frustum Attack (EFA), which selectively perturbs only the most influential frustums rather than uniformly attacking entire object regions. 
+
+<img width="4145" height="1188" alt="efa" src="https://github.com/user-attachments/assets/8dd35cfe-d858-4a36-8738-7fd06d932888" />
+
+
+Our experiments show that EFA reduces detection recall by more than 15 percentage points while requiring 25–50\% fewer perturbed frustums than the SOTA non–saliency-aware baseline. These findings reveal that modern 3D detectors concentrate discriminative evidence in a small subset of spatial regions, exposing a structural robustness vulnerability in current LiDAR perception systems. 
 
 Paper link:
 
