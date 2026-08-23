@@ -14,7 +14,7 @@ Guided by these maps, we design the Explainability-aware Frustum Attack (EFA), w
 
 Our experiments show that EFA reduces detection recall by more than 15 percentage points while requiring 25–50\% fewer perturbed frustums than the SOTA non–saliency-aware baseline. These findings reveal that modern 3D detectors concentrate discriminative evidence in a small subset of spatial regions, exposing a structural robustness vulnerability in current LiDAR perception systems. 
 
-[[Paper Link](https://dl.acm.org/doi/pdf/10.1145/3469261.3469406)]       [[Presentation Link](https://www.youtube.com/watch?v=U4vlNHf0Sg8)] [[Poster Link](https://eccv.ecva.net/media/PosterPDFs/ECCV%202026/5021.png?t=1787477312.7147481)]
+[[Paper Link](https://arxiv.org/abs/2606.29963)]       [[Presentation Link](https://www.youtube.com/watch?v=U4vlNHf0Sg8)] [[Poster Link](https://eccv.ecva.net/media/PosterPDFs/ECCV%202026/5021.png?t=1787477312.7147481)]
 
 ## Requirements
  - CUDA 11
