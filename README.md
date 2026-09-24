@@ -1,6 +1,6 @@
 # Saliency-LiDAR
 
-This is the official implementation of Saliency-LiDAR (Explainability-aware Frustum Attack: Exposing Structural Vulnerabilities in LiDAR-Based 3D Object Detectors). 
+This is the official implementation of Saliency-LiDAR (Explainability-aware Frustum Attack: Exposing Structural Vulnerabilities in LiDAR-Based 3D Object Detectors), which was accepted to ECCV 2026. 
 
 We introduce the Saliency-LiDAR (SALL) method, which aggregates Integrated Gradient attributions across scenes to produce universal saliency maps for LiDAR-based 3D object detectors. 
 
