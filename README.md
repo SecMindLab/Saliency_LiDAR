@@ -53,5 +53,25 @@ python ./attack/saliency_hiding.py --pert_shape 'saliency_map' --map_source_data
 ## Reference
 If you find this project useful in your research, please cite:
 ```
-   
+@InProceedings{10.1007/978-3-032-37595-7_22,
+author="You, Chengzeng
+and Xu, Binbin
+and Demetriou, Soteris",
+editor="Favaro, Paolo
+and Kukelova, Zuzana
+and Maki, Atsuto
+and Rohrbach, Anna
+and Schindler, Konrad
+and Tombari, Federico",
+title="Explainability-Aware Frustum Attack: Exposing Structural Vulnerabilities in LiDAR-Based 3D Object Detectors",
+booktitle="Computer Vision -- ECCV 2026",
+year="2026",
+publisher="Springer Nature Switzerland",
+address="Cham",
+pages="398--415",
+abstract="The structural vulnerabilities of point cloud--based 3D object detectors remain poorly understood. Prior work has studied adversarial robustness primarily on isolated 3D object models, while recent LiDAR spoofing attacks target richer and more realistic driving scenes but focus mainly on physical realizability rather than understanding detector behavior or attack efficiency. In this work, we investigate how LiDAR-based detectors rely on spatial evidence in complex scenes and whether these reliance patterns can be exploited to induce failures more efficiently. To this end, we propose an explainability-guided adversarial analysis methodology. We introduce the Saliency-LiDAR (SALL) method, which aggregates Integrated Gradient attributions across scenes to produce universal saliency maps for LiDAR-based 3D object detectors. Guided by these maps, we design the Explainability-aware Frustum Attack (EFA), which selectively perturbs only the most influential frustums rather than uniformly attacking entire object regions. Experiments on KITTI and nuScenes, across detectors such as PointPillars and SECOND, show that EFA reduces detection recall by more than 15 percentage points while requiring 25--50{\%} fewer perturbed frustums than the SOTA non--saliency-aware baseline. These findings reveal that modern 3D detectors concentrate discriminative evidence in a small subset of spatial regions, exposing a structural robustness vulnerability in current LiDAR perception systems. Our code is released at https://github.com/SecMindLab/Saliency{\_}LiDAR.",
+isbn="978-3-032-37595-7"
+}
+
+
 ```
